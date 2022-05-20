@@ -51,3 +51,32 @@ int test_func()
         }
 }
 
+int look_dict()
+{
+	char check[10];
+	printf("Let's see, what we have in dictionary\n");
+	FILE *dict;
+	dict = fopen("dict.txt", "r");
+	char buffer_word[50];
+	char buffer_mean[150];
+	int knowledge_level;
+	char buffer_check[49];
+	//for (int i = 0; i < 30; i++)
+	while (1)
+	{
+		printf("=====================================================================\n");
+		fgets(buffer_word, 49, dict);
+		if (strcmp (buffer_word, buffer_check) == 0)
+                {
+                        printf("The end of the dictionary. Thanks for your attention. You are smart and good!");
+                        break;
+                }
+		fgets(buffer_mean, 149, dict);
+		fscanf(dict, "%d",  knowledge_level);
+		printf("%s", buffer_word);
+		printf("%s", buffer_mean);
+		strcpy(buffer_check, buffer_word);
+		printf("====================================================================="); 
+	}
+}
+
