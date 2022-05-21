@@ -17,6 +17,7 @@ int add_word_func()
 		printf("Enter meaning of new word\n");
 		fgets(meaning, 120, stdin);
 		fprintf(dict, "%s", meaning);
+		fprintf(dict, "%d\n", 0);
 		fclose(dict);
 		printf("You have just added:\n");
 		printf("%s -  %s", word, meaning);
@@ -30,25 +31,31 @@ int add_word_func()
 
 int test_func()
 {
+	int value;
 	printf("Let's see how smart are you\n");
-        FILE *dict;
-        dict = fopen("dict.txt", "r");
-        char buffer1[50];
-        char buffer2[150];
-        char answer[50];
-        fgets(buffer1, 50, dict);
-        fgets(buffer2, 150, dict);
-        printf("%s", buffer2);
-        printf("Enter the word: ");
-        scanf("%s", answer);
-        if (answer == buffer1)
-        {
-                printf("RIGHT!");
-        }
-        else
-        {
-                printf("WRONG!");
-        }
+        printf("How many words do you want to train today?\n");
+	scanf("%d\n", &value);
+	for (int i; i<value; i++)
+	{
+		FILE *dict;
+        	dict = fopen("dict.txt", "r");
+        	char buffer_word[50];
+        	char buffer_mean[150];
+        	char answer[50];
+        	fgets(buffer_word, 50, dict);
+        	fgets(buffer_mean, 150, dict);
+        	printf("%s", buffer_mean);
+        	printf("Enter the word: ");
+        	scanf("%s", answer);
+        	if (strcmp (buffer_word, answer) == 0)
+        	{
+                	printf("RIGHT!");
+        	}
+        	else
+        	{
+                	printf("WRONG!");
+        	}
+	}
 }
 
 int look_dict()
@@ -72,7 +79,7 @@ int look_dict()
                         break;
                 }
 		fgets(buffer_mean, 149, dict);
-		fscanf(dict, "%d",  knowledge_level);
+		fscanf(dict, "%d", &knowledge_level);
 		printf("%s", buffer_word);
 		printf("%s", buffer_mean);
 		strcpy(buffer_check, buffer_word);
