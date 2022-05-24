@@ -1,5 +1,12 @@
 #include"functions.h"
 
+struct dict
+{
+	char word[50];
+	char meaning[150];
+	int knowledge_level;
+}
+
 int add_word_func()
 {
 
@@ -32,29 +39,35 @@ int add_word_func()
 int test_func()
 {
 	int value;
+	int i= 0;
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
-	scanf("%d\n", &value);
-	for (int i; i<value; i++)
+	scanf("%d", &value);
+	FILE *dict;
+	dict = fopen("dict.txt", "r");
+	while (1)
+	//for (int i; i<=value; i++)
 	{
-		FILE *dict;
-        	dict = fopen("dict.txt", "r");
-        	char buffer_word[50];
+        	if (i == value) break;
+		char buffer_word[50];
         	char buffer_mean[150];
+		int knowledge_level;
         	char answer[50];
         	fgets(buffer_word, 50, dict);
         	fgets(buffer_mean, 150, dict);
+		fscanf(dict, "%d", &knowledge_level);
         	printf("%s", buffer_mean);
         	printf("Enter the word: ");
         	scanf("%s", answer);
         	if (strcmp (buffer_word, answer) == 0)
         	{
-                	printf("RIGHT!");
+                	printf("RIGHT!\n");
         	}
         	else
         	{
-                	printf("WRONG!");
+                	printf("WRONG!\n");
         	}
+		i++;
 	}
 }
 
