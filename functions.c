@@ -39,7 +39,7 @@ int add_word_func()
 
 int test_func()
 {
-	getchar();
+	//getchar();
 	int value;
 	int i= 0;
 	printf("Let's see how smart are you\n");
@@ -55,21 +55,26 @@ int test_func()
 		char buffer_word[50];
         	char buffer_mean[150];
 		int knowledge_level;
-		char str_knowledge_level[4];
+		//char str_knowledge_level[4];
         	char answer[50];
 		fgets(buffer_word, 50, dict);
         	fgets(buffer_mean, 150, dict);
-		fgets(str_knowledge_level, 3, dict);
+		//fscanf(dict, "%d/n", &knowledge_level);
+		fscanf(dict, "%d\n", &knowledge_level);
+		//getchar();
+		//fgets(str_knowledge_level, 3, dict);
 		printf("buffer_word - %s", buffer_word);
 		printf("buffer_mean - %s", buffer_mean);
-		printf("str_knowledge_level - %s", str_knowledge_level);
-        	printf("%s", buffer_mean);
+		//printf("str_knowledge_level - %s", str_knowledge_level);
+        	printf("knowledge_level - %d\n", knowledge_level);
+		printf("%s", buffer_mean);
         	printf("Enter the word: ");
         	fgets(answer, 49, stdin);
 		printf("%s - %s", buffer_word, answer);
         	if (strcmp (buffer_word, answer) == 0)
         	{
                 	printf("RIGHT!\n");
+
         	}
         	else
         	{
