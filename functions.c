@@ -39,24 +39,30 @@ int add_word_func()
 
 int test_func()
 {
+	getchar();
 	int value;
 	int i= 0;
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
-	scanf("%d\n", &value);
+	scanf("%d/n", &value);
+	getchar();
 	FILE *dict;
 	dict = fopen("dict.txt", "r");
 	while (1)
-	//for (int i; i<=value; i++)
+	for (int i; i<=value; i++)
 	{
-        	if (i == value) break;
+		if (i == value) break;
 		char buffer_word[50];
         	char buffer_mean[150];
 		int knowledge_level;
+		char str_knowledge_level[4];
         	char answer[50];
 		fgets(buffer_word, 50, dict);
         	fgets(buffer_mean, 150, dict);
-		fscanf(dict, "%d", &knowledge_level);
+		fgets(str_knowledge_level, 3, dict);
+		printf("buffer_word - %s", buffer_word);
+		printf("buffer_mean - %s", buffer_mean);
+		printf("str_knowledge_level - %s", str_knowledge_level);
         	printf("%s", buffer_mean);
         	printf("Enter the word: ");
         	fgets(answer, 49, stdin);
@@ -69,6 +75,7 @@ int test_func()
         	{
                 	printf("WRONG!\n");
         	}
+		printf("--------------------------------------------------------\n");
 		i++;
 	}
 }
