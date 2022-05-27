@@ -7,7 +7,7 @@ int main()
         printf("1 - Enter new word\n");
 	printf("2 - Start testing\n");
 	printf("3 - Look at the dictionary\n");
-	scanf("%d/n", &main_menu);
+	scanf("%d", &main_menu);
 	if (main_menu == 1)
 		add_word_func();
 	if (main_menu == 2)
