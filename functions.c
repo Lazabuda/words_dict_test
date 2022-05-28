@@ -68,7 +68,6 @@ int test_func()
         	if (strcmp (buffer_word, answer) == 0)
         	{
                 	printf("RIGHT!\n");
-
         	}
         	else
         	{
@@ -86,7 +85,7 @@ int look_dict()
 	dict = fopen("dict.txt", "r");
 	char buffer_word[50];
 	char buffer_mean[150];
-	char knowledge_level[3];
+	int knowledge_level;
 	char buffer_check[49];
 	//for (int i = 0; i < 30; i++)
 	while (1)
@@ -94,17 +93,17 @@ int look_dict()
 		printf("=====================================================================\n");
 		fgets(buffer_word, 49, dict);
 		fgets(buffer_mean, 149, dict);
-		fgets(knowledge_level, 3, dict);
+		fscanf(dict, "%d\n", &knowledge_level);
 		if (strcmp (buffer_word, buffer_check) == 0)
                 {
-                        printf("The end of the dictionary. Thanks for your attention. You are smart and good!");
+                        printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
                         break;
                 }
 		//fgets(buffer_mean, 149, dict);
 		//fgets(knowledge_level, 2, dict);
 		printf("%s", buffer_word);
 		printf("%s", buffer_mean);
-		printf("%s", knowledge_level);
+		printf("%d\n", knowledge_level);
 		strcpy(buffer_check, buffer_word);
 		//printf("====================================================================="); 
 	}
