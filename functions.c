@@ -8,27 +8,30 @@ struct dict
 }
 */
 
-int add_word_func()
+int add_word_func() // Fuction to add words (1)
 {
 
 	while (1)
 	{
-		getchar();
+		char word[50];
+		char meaning[150];
+		getchar(); // used for swallow \n
 		char answer;
 		printf("Enter new word, lowercase\n");
-		fgets(word, 48, stdin);
+		fgets(word, 48, stdin); // read the string with word from input
 		FILE *dict;
-		dict = fopen("dict.txt", "a");
-		fprintf(dict, "%s", word);
-		fclose(dict);
-		dict = fopen("dict.txt", "a");
+		dict = fopen("dict.txt", "a"); // open file (or create if file does't exest)
+		fprintf(dict, "%s", word); // write word in file
 		printf("Enter meaning of new word\n");
-		fgets(meaning, 120, stdin);
-		fprintf(dict, "%s", meaning);
-		fprintf(dict, "%d\n", 0);
-		fclose(dict);
+		fgets(meaning, 120, stdin); // read the string with meaning of the word
+		fprintf(dict, "%s", meaning); // write the meaning of the word to file
+		fprintf(dict, "%d\n", 0); // write variable, which shows how good we knoe this word
+		fclose(dict); // close the file
 		printf("You have just added:\n");
-		printf("%s -  %s", word, meaning);
+		int t = strcspn(word, "\n"); // return the number of last character before "\n"
+                for (int a = 0; a < t; a++) // print word without "\n"
+                	printf("%c", word[a]);
+                printf(" - %s", meaning);
 		printf("\n");
 		printf("Do you want to enter another word? y/n\n");
 		scanf("%c", &answer);
@@ -64,14 +67,19 @@ int test_func()
 		printf("%s", buffer_mean);
         	printf("Enter the word: ");
         	fgets(answer, 49, stdin);
-		printf("%s - %s", buffer_word, answer);
         	if (strcmp (buffer_word, answer) == 0)
         	{
                 	printf("RIGHT!\n");
+			int t = strcspn(buffer_word, "\n");
+			for (int a = 0; a < t; a++)
+				printf("%c", buffer_word[a]);
+			printf(" - %s", answer);
         	}
         	else
         	{
                 	printf("WRONG!\n");
+			printf("The right word - %s", buffer_word);
+			printf("You have input - %s", answer);
         	}
 		printf("--------------------------------------------------------\n");
 	}
