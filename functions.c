@@ -96,17 +96,17 @@ int look_dict()
 	int knowledge_level;
 	char buffer_check[49];
 	//for (int i = 0; i < 30; i++)
-	while (1)
+	while (!feof(dict))
 	{
 		printf("=====================================================================\n");
 		fgets(buffer_word, 49, dict);
 		fgets(buffer_mean, 149, dict);
 		fscanf(dict, "%d\n", &knowledge_level);
-		if (strcmp (buffer_word, buffer_check) == 0)
-                {
-                        printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
-                        break;
-                }
+		//if (strcmp (buffer_word, buffer_check) == 0)
+                //{
+                //        printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
+                //        break;
+                //}
 		//fgets(buffer_mean, 149, dict);
 		//fgets(knowledge_level, 2, dict);
 		printf("%s", buffer_word);
