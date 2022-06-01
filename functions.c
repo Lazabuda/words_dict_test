@@ -1,12 +1,16 @@
 #include"functions.h"
-/*:
-struct dict
+/*
+typedef struct
 {
-	char word[50];
-	char meaning[150];
+	char *word;
+	char *meaning;
 	int knowledge_level;
-}
+} dict;
 */
+const int MAXWORDS = 100;
+static int numrecords = 0;
+const char* const dictFile = "dict.txt";
+
 
 int add_word_func() // Fuction to add words (1)
 {
@@ -18,12 +22,12 @@ int add_word_func() // Fuction to add words (1)
 		getchar(); // used for swallow \n
 		char answer;
 		printf("Enter new word, lowercase\n");
-		fgets(word, 48, stdin); // read the string with word from input
+		fgets(word, sizeof(word), stdin); // read the string with word from input
 		FILE *dict;
-		dict = fopen("dict.txt", "a"); // open file (or create if file does't exest)
+		dict = fopen(dictFile, "a"); // open file (or create if file does't exest)
 		fprintf(dict, "%s", word); // write word in file
 		printf("Enter meaning of new word\n");
-		fgets(meaning, 120, stdin); // read the string with meaning of the word
+		fgets(meaning, sizeof(meaning), stdin); // read the string with meaning of the word
 		fprintf(dict, "%s", meaning); // write the meaning of the word to file
 		fprintf(dict, "%d\n", 0); // write variable, which shows how good we knoe this word
 		fclose(dict); // close the file
@@ -49,7 +53,7 @@ int test_func()
 	scanf("%d", &value);
 	getchar();
 	FILE *dict;
-	dict = fopen("dict.txt", "r");
+	dict = fopen(dictFile, "r");
 	for (i; i<=value; i++)
 	{
 		if (i == value) break;
@@ -90,7 +94,7 @@ int look_dict()
 	char check[10];
 	printf("Let's see, what we have in dictionary\n");
 	FILE *dict;
-	dict = fopen("dict.txt", "r");
+	dict = fopen(dictFile, "r");
 	char buffer_word[50];
 	char buffer_mean[150];
 	int knowledge_level;
@@ -108,3 +112,8 @@ int look_dict()
 	printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
 }
 
+//int read_word()
+
+//int read_meaning()
+
+//int read_knowledge_level()
