@@ -7,13 +7,8 @@ typedef struct
 	int recognition_value;
 } dictionary;
 
-
-//const int MAXWORDS = 100;
-//static int numrecords = 0;
 const char* const dictFile = "dict.txt";
 static dictionary record[100];
-//static char input_word[50];
-//static char input_meaning[150];
 
 int add_word_func() // Fuction to add words (1)
 {
@@ -22,19 +17,26 @@ int add_word_func() // Fuction to add words (1)
 	{
 		char word[50];
 		char meaning[150];
-		getchar(); // used for swallow \n
 		char answer;
+		int size;
+
+		getchar(); // used for swallow \n
+
+		FILE *dict;
+		dict = fopen(dictFile, "a"); //open file (or create if file does't exest)
+		
 		printf("Enter new word, lowercase\n");
 		fgets(word, sizeof(word), stdin); // read the string with word from input
-		FILE *dict;
-		dict = fopen(dictFile, "a"); // open file (or create if file does't exest)
 		fprintf(dict, "%s", word); // write word in file
+
 		printf("Enter meaning of new word\n");
 		fgets(meaning, sizeof(meaning), stdin); // read the string with meaning of the word
 		fprintf(dict, "%s", meaning); // write the meaning of the word to file
+		
 		fprintf(dict, "%d\n", 0); // write variable, which shows how good we knoe this word
 		fclose(dict); // close the file
 		printf("You have just added:\n");
+		
 		int t = strcspn(word, "\n"); // return the number of last character before "\n"
                 for (int a = 0; a < t; a++) // print word without "\n"
                 	printf("%c", word[a]);
@@ -153,7 +155,6 @@ int print_all_data()
 	}
 	return 0;
 }
-	
 /*
 int read_word()
 {
