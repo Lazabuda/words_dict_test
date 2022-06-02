@@ -1,17 +1,18 @@
 #include"functions.h"
-
+/*
 typedef struct
 {
 	char *word;
 	char *meaning;
 	int knowledge_level;
 } dict;
+*/
 
-const int MAXWORDS = 100;
-static int numrecords = 0;
+//const int MAXWORDS = 100;
+//static int numrecords = 0;
 const char* const dictFile = "dict.txt";
-static char input_word[50];
-static char input_meaning[150];
+//static char input_word[50];
+//static char input_meaning[150];
 
 int add_word_func() // Fuction to add words (1)
 {
@@ -112,12 +113,12 @@ int look_dict()
 	}
 	printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
 }
-
+/*
 int read_word()
 {
 	printf("Enter new word, lowercase\n");
 	return readstring(input_word, 50, &wordlen)
-
+*/
 
 //int read_meaning()
 
