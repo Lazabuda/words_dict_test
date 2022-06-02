@@ -1,16 +1,17 @@
 #include"functions.h"
-/*
+
 typedef struct
 {
 	char *word;
 	char *meaning;
-	int knowledge_level;
-} dict;
-*/
+	int recognition_value;
+} dictionary;
+
 
 //const int MAXWORDS = 100;
 //static int numrecords = 0;
 const char* const dictFile = "dict.txt";
+static dictionary record[100];
 //static char input_word[50];
 //static char input_meaning[150];
 
@@ -89,6 +90,8 @@ int test_func()
         	}
 		printf("--------------------------------------------------------\n");
 	}
+	fclose(dict);
+	return 0;
 }
 
 int look_dict()
@@ -112,7 +115,45 @@ int look_dict()
 		printf("%d\n", knowledge_level); 
 	}
 	printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
+	fclose(dict);
+	return 0;
 }
+
+int download_data_from_file()
+{
+	int i = 0;
+	char buffer_word[50];
+	char buffer_meaning[150];
+	int knowledge_level;
+	FILE *dict;
+	dict = fopen(dictFile, "r");
+	while (!feof(dict))
+	{
+		fgets(buffer_word, 49, dict);
+		fgets(buffer_meaning, 149, dict);
+		fscanf(dict, "%d\n", &knowledge_level);
+		record[i].word = (char*) malloc(strlen(buffer_word) + 1);
+		strcpy(record[i].word, buffer_word);
+		record[i].meaning = (char*) malloc(strlen(buffer_meaning) + 1);
+		strcpy(record[i].meaning, buffer_meaning);
+		record[i].recognition_value = knowledge_level;
+		i++;
+	}
+	fclose(dict);
+	return 0;
+}
+
+int print_all_data()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		printf("%s", record[i].word);
+		printf("%s", record[i].meaning);
+		printf("%d\n", record[i].recognition_value);
+	}
+	return 0;
+}
+	
 /*
 int read_word()
 {
