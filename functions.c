@@ -88,6 +88,7 @@ int test_func()
 		printf("--------------------------------------------------------\n");
 	}
 	upload_data_from_file();
+	replace_temp_file();
 	return 0;
 }
 
@@ -158,6 +159,13 @@ int upload_data_from_file()
         }
         fclose(temp);
         return 0;
+}
+
+int replace_temp_file()
+{
+	remove ("dict.txt");
+	rename ("temp.txt", "dict.txt");
+	return 0;
 }
 
 int print_all_data()
