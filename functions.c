@@ -8,7 +8,9 @@ typedef struct
 } dictionary;
 
 const char* const dictFile = "dict.txt";
+const char* const tempFile = "temp.txt";
 static dictionary record[100];
+int words_num;
 
 int add_word_func() // Fuction to add words (1)
 {
@@ -53,46 +55,41 @@ int test_func()
 {
 	int value;
 	int i = 0;
+	download_data_from_file();
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
 	scanf("%d", &value);
 	getchar();
-	FILE *dict;
-	dict = fopen(dictFile, "r");
 	for (i; i<=value; i++)
 	{
 		if (i == value) break;
-		char buffer_word[50];
-        	char buffer_mean[150];
-		int knowledge_level;
-        	char answer[50];
-		fgets(buffer_word, 50, dict);
-        	fgets(buffer_mean, 150, dict);
-		fscanf(dict, "%d\n", &knowledge_level);
-		//printf("buffer_word - %s", buffer_word);
-		//printf("buffer_mean - %s", buffer_mean);
-        	//printf("knowledge_level - %d\n", knowledge_level);
+ 		char answer[50];
+                //printf("buffer_word - %s", record[i].word);
+		//printf("buffer_mean - %s", record[i].meaning);
+        	//printf("knowledge_level - %d\n", record[i].recognition_value);
 		//printf("i = %d\n", i);
-		printf("%s", buffer_mean);
+		printf("%s", record[i].meaning);
         	printf("Enter the word: ");
         	fgets(answer, 49, stdin);
-        	if (strcmp (buffer_word, answer) == 0)
+        	if (strcmp (record[i].word, answer) == 0)
         	{
                 	printf("RIGHT!\n");
-			int t = strcspn(buffer_word, "\n");
+			int t = strcspn(record[i].word, "\n");
 			for (int a = 0; a < t; a++)
-				printf("%c", buffer_word[a]);
+				printf("%c", record[i].word[a]);
 			printf(" - %s", answer);
+			record[i].recognition_value++;
         	}
         	else
         	{
                 	printf("WRONG!\n");
-			printf("The right word - %s", buffer_word);
+			printf("The right word - %s", record[i].word);
 			printf("You have input - %s", answer);
+			if (record[i].recognition_value != 0) record[i].recognition_value--;
         	}
 		printf("--------------------------------------------------------\n");
 	}
-	fclose(dict);
+	upload_data_from_file();
 	return 0;
 }
 
@@ -141,8 +138,28 @@ int download_data_from_file()
 		record[i].recognition_value = knowledge_level;
 		i++;
 	}
+	words_num = i;
 	fclose(dict);
 	return 0;
+}
+
+int upload_data_from_file()
+{
+	int i = 0;
+        char buffer_word[50];
+        char buffer_meaning[150];
+        int knowledge_level;
+        FILE *temp;
+        temp = fopen(tempFile, "a");
+        while (i < words_num)
+        {
+                fprintf(temp, "%s", record[i].word);
+		fprintf(temp, "%s", record[i].meaning);
+                fprintf(temp, "%d\n", record[i].recognition_value);
+                i++;
+        }
+        fclose(temp);
+        return 0;
 }
 
 int print_all_data()
