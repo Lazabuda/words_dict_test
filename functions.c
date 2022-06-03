@@ -55,7 +55,9 @@ int test_func()
 {
 	int value;
 	int i = 0;
+
 	download_data_from_file();
+
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
 	scanf("%d", &value);
