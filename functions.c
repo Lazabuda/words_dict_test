@@ -64,10 +64,6 @@ int test_func()
 	{
 		if (i == value) break;
  		char answer[50];
-                //printf("buffer_word - %s", record[i].word);
-		//printf("buffer_mean - %s", record[i].meaning);
-        	//printf("knowledge_level - %d\n", record[i].recognition_value);
-		//printf("i = %d\n", i);
 		printf("%s", record[i].meaning);
         	printf("Enter the word: ");
         	fgets(answer, 49, stdin);
