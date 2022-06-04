@@ -92,6 +92,14 @@ int test_func()
 	return 0;
 }
 
+int find_weak_words();
+{
+	int i = 0;
+	while (i < words_num)
+	{
+		if (record[i].recognition_value == 0)
+
+
 int look_dict()
 {
 	char check[10];
@@ -167,6 +175,8 @@ int replace_temp_file()
 	rename ("temp.txt", "dict.txt");
 	return 0;
 }
+
+//int find_low_recognize_word();
 
 int print_all_data()
 {
