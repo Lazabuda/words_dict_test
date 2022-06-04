@@ -7,9 +7,21 @@ typedef struct
 	int recognition_value;
 } dictionary;
 
+typedef struct
+{
+	int *word_level_0;
+	int *word_level_1;
+	int *word_level_2;
+	int *word_level_3;
+	int *word_level_4;
+	int *word_level_5;
+	int *word_level_6;
+} test_array;
+	
 const char* const dictFile = "dict.txt";
 const char* const tempFile = "temp.txt";
-static dictionary record[100];
+static dictionary record[500];
+static test_array level[100];
 int words_num;
 
 int add_word_func() // Fuction to add words (1)
@@ -95,9 +107,54 @@ int test_func()
 int find_weak_words();
 {
 	int i = 0;
+	int pos_0 = 0;
+	int pos_1 = 0;
+	int pos_2 = 0;
+	int pos_3 = 0;
+	int pos_4 = 0;
+	int pos_5 = 0;
+	int pos_6 = 0;
+	
 	while (i < words_num)
 	{
-		if (record[i].recognition_value == 0)
+		if (record[i].recognition_value == 0) 
+		{
+			level[pos_0].word_level_value_0 = record[i].recognition_value;
+			pos_0++;
+		}
+		if (record[i].recognition_value == 1)
+                {
+                        level[pos_1].word_level_value_1 = record[i].recognition_value;
+                        pos_1++;
+                }
+		if (record[i].recognition_value == 2)
+                {
+                        level[pos_2].word_level_value_2 = record[i].recognition_value;
+                        pos_2++;
+                }
+		if (record[i].recognition_value == 3)
+                {
+                        level[pos_3].word_level_value_3 = record[i].recognition_value;
+                        pos_3++;
+                }
+		if (record[i].recognition_value == 4)
+                {
+                        level[pos_4].word_level_value_4 = record[i].recognition_value;
+                        pos_4++;
+                }
+		if (record[i].recognition_value == 5)
+                {
+                        level[pos_5].word_level_value_5 = record[i].recognition_value;
+                        pos_5++;
+                }
+		if (record[i].recognition_value == 6)
+                {
+                        level[pos_6].word_level_value_6 = record[i].recognition_value;
+                        pos_6++;
+                }
+	}
+	return 0;
+}
 
 
 int look_dict()
