@@ -47,7 +47,7 @@ int add_word_func() // Fuction to add words (1)
 		fgets(meaning, sizeof(meaning), stdin); // read the string with meaning of the word
 		fprintf(dict, "%s", meaning); // write the meaning of the word to file
 		
-		fprintf(dict, "%d\n", 0); // write variable, which shows how good we knoe this word
+		fprintf(dict, "%d\n", 1); // write variable, which shows how good we knoe this word
 		fclose(dict); // close the file
 		printf("You have just added:\n");
 		
@@ -114,40 +114,41 @@ int find_weak_words();
 	int pos_4 = 0;
 	int pos_5 = 0;
 	int pos_6 = 0;
+
 	
 	while (i < words_num)
 	{
-		if (record[i].recognition_value == 0) 
+		if (record[i].recognition_value == 1) 
 		{
 			level[pos_0].word_level_value_0 = record[i].recognition_value;
 			pos_0++;
 		}
-		if (record[i].recognition_value == 1)
+		if (record[i].recognition_value == 2)
                 {
                         level[pos_1].word_level_value_1 = record[i].recognition_value;
                         pos_1++;
                 }
-		if (record[i].recognition_value == 2)
+		if (record[i].recognition_value == 3)
                 {
                         level[pos_2].word_level_value_2 = record[i].recognition_value;
                         pos_2++;
                 }
-		if (record[i].recognition_value == 3)
+		if (record[i].recognition_value == 4)
                 {
                         level[pos_3].word_level_value_3 = record[i].recognition_value;
                         pos_3++;
                 }
-		if (record[i].recognition_value == 4)
+		if (record[i].recognition_value == 5)
                 {
                         level[pos_4].word_level_value_4 = record[i].recognition_value;
                         pos_4++;
                 }
-		if (record[i].recognition_value == 5)
+		if (record[i].recognition_value == 6)
                 {
                         level[pos_5].word_level_value_5 = record[i].recognition_value;
                         pos_5++;
                 }
-		if (record[i].recognition_value == 6)
+		if (record[i].recognition_value == 7)
                 {
                         level[pos_6].word_level_value_6 = record[i].recognition_value;
                         pos_6++;
