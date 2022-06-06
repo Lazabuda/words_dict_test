@@ -67,7 +67,7 @@ int add_word_func() // Fuction to add words (1)
 
 int test_func()
 {
-	int value;
+	int value=3;
 	int i = 0;
 	int counter = 0;
 
@@ -84,6 +84,7 @@ int test_func()
 		if (counter == value) break;
  		char answer[50];
 		i = level[counter].test_words_array;
+		printf("service message. iteration = %d\n", i);
 		printf("%s", record[i].meaning);
 		printf("Enter the word: ");
         	fgets(answer, 49, stdin);
@@ -128,37 +129,45 @@ int sort_weak_words()
 		{
 			level[pos_0].word_level_value_0 = record_index;
 			record_index++;
+			pos_0++;
 		}
 		if (record[i].recognition_value == 2)
                 {
                         level[pos_1].word_level_value_1 = record_index;
                         record_index++;
+			pos_1++;
                 }
 		if (record[i].recognition_value == 3)
                 {
                         level[pos_2].word_level_value_2 = record_index;
                         record_index++;
+			pos_2++;
                 }
 		if (record[i].recognition_value == 4)
                 {
                         level[pos_3].word_level_value_3 = record_index;
                         record_index++;
+			pos_3++;
                 }
 		if (record[i].recognition_value == 5)
                 {
                         level[pos_4].word_level_value_4 = record_index;
                         record_index++;
+			pos_4++;
                 }
 		if (record[i].recognition_value == 6)
                 {
                         level[pos_5].word_level_value_5 = record_index;
                         record_index++;
+			pos_5++;
                 }
 		if (record[i].recognition_value == 7)
                 {
                         level[pos_6].word_level_value_6 = record_index;
                         record_index++;
+			pos_6++;
                 }
+		i++;
 	}
 	return 0;
 }
@@ -185,30 +194,35 @@ int find_weak_words()
         {
                 level[i_test_array].test_words_array = level[i].word_level_value_2;
                 i++;
+		i_test_array++;
         }
 	i = 0;
 	while (level[i].word_level_value_3 != 0)
         {
                 level[i_test_array].test_words_array = level[i].word_level_value_3;
                 i++;
+		i_test_array++;
         }
 	i = 0;
 	while (level[i].word_level_value_4 != 0)
         {
                 level[i_test_array].test_words_array = level[i].word_level_value_4;
                 i++;
+		i_test_array++;
         }
 	i = 0;
 	while (level[i].word_level_value_5 != 0)
         {
                 level[i_test_array].test_words_array = level[i].word_level_value_5;
                 i++;
+		i_test_array++;
         }
 	i = 0;
 	while (level[i].word_level_value_6 != 0)
         {
                 level[i_test_array].test_words_array = level[i].word_level_value_6;
                 i++;
+		i_test_array++;
         }
 	return 0;
 }
