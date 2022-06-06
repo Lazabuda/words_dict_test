@@ -9,15 +9,17 @@ typedef struct
 
 typedef struct
 {
-	int *word_level_0;
-	int *word_level_1;
-	int *word_level_2;
-	int *word_level_3;
-	int *word_level_4;
-	int *word_level_5;
-	int *word_level_6;
+	int *word_level_value_0;
+	int *word_level_value_1;
+	int *word_level_value_2;
+	int *word_level_value_3;
+	int *word_level_value_4;
+	int *word_level_value_5;
+	int *word_level_value_6;
+	int *test_words_array;
+
 } test_array;
-	
+int record_index;
 const char* const dictFile = "dict.txt";
 const char* const tempFile = "temp.txt";
 static dictionary record[500];
@@ -67,6 +69,7 @@ int test_func()
 {
 	int value;
 	int i = 0;
+	int counter = 0;
 
 	download_data_from_file();
 
@@ -74,12 +77,15 @@ int test_func()
         printf("How many words do you want to train today?\n");
 	scanf("%d", &value);
 	getchar();
-	for (i; i<=value; i++)
+	sort_weak_words();
+	find_weak_words();
+	for (counter; counter<=value; counter++)
 	{
-		if (i == value) break;
+		if (counter == value) break;
  		char answer[50];
+		i = level[counter].test_words_array;
 		printf("%s", record[i].meaning);
-        	printf("Enter the word: ");
+		printf("Enter the word: ");
         	fgets(answer, 49, stdin);
         	if (strcmp (record[i].word, answer) == 0)
         	{
@@ -104,7 +110,7 @@ int test_func()
 	return 0;
 }
 
-int find_weak_words();
+int sort_weak_words()
 {
 	int i = 0;
 	int pos_0 = 0;
@@ -120,42 +126,93 @@ int find_weak_words();
 	{
 		if (record[i].recognition_value == 1) 
 		{
-			level[pos_0].word_level_value_0 = record[i].recognition_value;
-			pos_0++;
+			level[pos_0].word_level_value_0 = record_index;
+			record_index++;
 		}
 		if (record[i].recognition_value == 2)
                 {
-                        level[pos_1].word_level_value_1 = record[i].recognition_value;
-                        pos_1++;
+                        level[pos_1].word_level_value_1 = record_index;
+                        record_index++;
                 }
 		if (record[i].recognition_value == 3)
                 {
-                        level[pos_2].word_level_value_2 = record[i].recognition_value;
-                        pos_2++;
+                        level[pos_2].word_level_value_2 = record_index;
+                        record_index++;
                 }
 		if (record[i].recognition_value == 4)
                 {
-                        level[pos_3].word_level_value_3 = record[i].recognition_value;
-                        pos_3++;
+                        level[pos_3].word_level_value_3 = record_index;
+                        record_index++;
                 }
 		if (record[i].recognition_value == 5)
                 {
-                        level[pos_4].word_level_value_4 = record[i].recognition_value;
-                        pos_4++;
+                        level[pos_4].word_level_value_4 = record_index;
+                        record_index++;
                 }
 		if (record[i].recognition_value == 6)
                 {
-                        level[pos_5].word_level_value_5 = record[i].recognition_value;
-                        pos_5++;
+                        level[pos_5].word_level_value_5 = record_index;
+                        record_index++;
                 }
 		if (record[i].recognition_value == 7)
                 {
-                        level[pos_6].word_level_value_6 = record[i].recognition_value;
-                        pos_6++;
+                        level[pos_6].word_level_value_6 = record_index;
+                        record_index++;
                 }
 	}
 	return 0;
 }
+
+int find_weak_words()
+{
+	int i_test_array = 0;
+	int i = 0;
+	while (level[i].word_level_value_0 != 0)
+	{
+		level[i_test_array].test_words_array = level[i].word_level_value_0;
+		i++;
+		i_test_array++;
+	}
+	i = 0;
+	while (level[i].word_level_value_1 != 0)
+        {
+                level[i_test_array].test_words_array = level[i].word_level_value_1;
+                i++;
+		i_test_array++;
+        }
+	i = 0;
+	while (level[i].word_level_value_2 != 0)
+        {
+                level[i_test_array].test_words_array = level[i].word_level_value_2;
+                i++;
+        }
+	i = 0;
+	while (level[i].word_level_value_3 != 0)
+        {
+                level[i_test_array].test_words_array = level[i].word_level_value_3;
+                i++;
+        }
+	i = 0;
+	while (level[i].word_level_value_4 != 0)
+        {
+                level[i_test_array].test_words_array = level[i].word_level_value_4;
+                i++;
+        }
+	i = 0;
+	while (level[i].word_level_value_5 != 0)
+        {
+                level[i_test_array].test_words_array = level[i].word_level_value_5;
+                i++;
+        }
+	i = 0;
+	while (level[i].word_level_value_6 != 0)
+        {
+                level[i_test_array].test_words_array = level[i].word_level_value_6;
+                i++;
+        }
+	return 0;
+}
+
 
 
 int look_dict()
