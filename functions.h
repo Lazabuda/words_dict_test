@@ -4,6 +4,7 @@
 #include<sys/mman.h> // library for work with file memory
 
 int download_data_from_file();
+int memory_init();
 int upload_data_from_file();
 int replace_temp_file();
 //int find_low_recognize_word();

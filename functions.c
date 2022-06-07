@@ -19,12 +19,53 @@ typedef struct
 	int *test_words_array;
 
 } test_array;
+
 int record_index;
 const char* const dictFile = "dict.txt";
 const char* const tempFile = "temp.txt";
 static dictionary record[500];
-static test_array level[100];
+static test_array level[500];
 int words_num;
+
+int memory_init()
+{
+	int word_level_value_0 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_0 == NULL)
+		printf("Memory not allocated \n");
+	else
+		printf("Memory allocated succesfully \n");
+	int word_level_value_1 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_1 == NULL)
+                printf("Memory not allocated \n");
+	else
+                printf("Memory allocated succesfully \n");
+	int word_level_value_2 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_2 == NULL)
+                printf("Memory not allocated \n");
+	else
+                printf("Memory allocated succesfully \n");
+	int word_level_value_3 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_3 == NULL)
+                printf("Memory not allocated \n");
+	else
+                printf("Memory allocated succesfully \n");
+	int word_level_value_4 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_4 == NULL)
+                printf("Memory not allocated \n");
+	else
+                printf("Memory allocated succesfully \n");
+	int word_level_value_5 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_5 == NULL)
+                printf("Memory not allocated \n");
+	else
+                printf("Memory allocated succesfully \n");
+	int word_level_value_6 = (int*)calloc(50, sizeof(int));
+	if (word_level_value_6 == NULL)
+                printf("Memory not allocated \n");
+	else
+                printf("Memory allocated succesfully \n");
+	return 0;
+}
 
 int add_word_func() // Fuction to add words (1)
 {
@@ -95,7 +136,8 @@ int test_func()
 			for (int a = 0; a < t; a++)
 				printf("%c", record[i].word[a]);
 			printf(" - %s", answer);
-			record[i].recognition_value++;
+			if (record[i].recognition_value < 8)
+				record[i].recognition_value++;
         	}
         	else
         	{
@@ -121,8 +163,7 @@ int sort_weak_words()
 	int pos_4 = 0;
 	int pos_5 = 0;
 	int pos_6 = 0;
-
-	
+		
 	while (i < words_num)
 	{
 		if (record[i].recognition_value == 1) 

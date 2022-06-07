@@ -5,6 +5,7 @@ int main()
 	int main_menu;
 	while (1)
 	{
+		memory_init();
 		printf("###_____WORDS_TEST_ver1_____###\n");
         	printf("1 - Enter new word\n");
 		printf("2 - Start testing\n");
