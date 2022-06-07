@@ -7,62 +7,62 @@ typedef struct
 	int recognition_value;
 } dictionary;
 
-typedef struct
-{
-	int *word_level_value_0;
-	int *word_level_value_1;
-	int *word_level_value_2;
-	int *word_level_value_3;
-	int *word_level_value_4;
-	int *word_level_value_5;
-	int *word_level_value_6;
-	int *test_words_array;
+int *word_level_value_0;
+int *word_level_value_1;
+int *word_level_value_2;
+int *word_level_value_3;
+int *word_level_value_4;
+int *word_level_value_5;
+int *word_level_value_6;
+int *test_words_array;
 
-} test_array;
-
-int record_index;
+int record_index = 0;
 const char* const dictFile = "dict.txt";
 const char* const tempFile = "temp.txt";
 static dictionary record[500];
-static test_array level[500];
 int words_num;
 
 int memory_init()
 {
-	int word_level_value_0 = (int*)calloc(50, sizeof(int));
+	word_level_value_0 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_0 == NULL)
 		printf("Memory not allocated \n");
 	else
 		printf("Memory allocated succesfully \n");
-	int word_level_value_1 = (int*)calloc(50, sizeof(int));
+	word_level_value_1 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_1 == NULL)
                 printf("Memory not allocated \n");
 	else
                 printf("Memory allocated succesfully \n");
-	int word_level_value_2 = (int*)calloc(50, sizeof(int));
+	word_level_value_2 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_2 == NULL)
                 printf("Memory not allocated \n");
 	else
                 printf("Memory allocated succesfully \n");
-	int word_level_value_3 = (int*)calloc(50, sizeof(int));
+	word_level_value_3 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_3 == NULL)
                 printf("Memory not allocated \n");
 	else
                 printf("Memory allocated succesfully \n");
-	int word_level_value_4 = (int*)calloc(50, sizeof(int));
+	word_level_value_4 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_4 == NULL)
                 printf("Memory not allocated \n");
 	else
                 printf("Memory allocated succesfully \n");
-	int word_level_value_5 = (int*)calloc(50, sizeof(int));
+	word_level_value_5 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_5 == NULL)
                 printf("Memory not allocated \n");
 	else
                 printf("Memory allocated succesfully \n");
-	int word_level_value_6 = (int*)calloc(50, sizeof(int));
+	word_level_value_6 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_6 == NULL)
                 printf("Memory not allocated \n");
 	else
+                printf("Memory allocated succesfully \n");
+	test_words_array = (int*)calloc(50, sizeof(int));
+        if (test_words_array == NULL)
+                printf("Memory not allocated \n");
+        else
                 printf("Memory allocated succesfully \n");
 	return 0;
 }
@@ -108,23 +108,29 @@ int add_word_func() // Fuction to add words (1)
 
 int test_func()
 {
-	int value=3;
+	int value = 0;
 	int i = 0;
 	int counter = 0;
 
 	download_data_from_file();
-
+	printf("SERVICE MESSAGE: download_data_from_file() - PASSED \n");
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
 	scanf("%d", &value);
 	getchar();
+	memory_init();
+	printf("SERVICE MESSAGE: memory_init() - PASSED \n");
 	sort_weak_words();
+	printf("SERVICE MESSAGE: sort_weak_words() - PASSED \n");
 	find_weak_words();
+	printf("SERVICE MESSAGE: find_weak_words() - PASSED \n");
+	memory_test();
+	printf("SERVICE MESSAGE: memory_test() - PASSED \n");
 	for (counter; counter<=value; counter++)
 	{
 		if (counter == value) break;
  		char answer[50];
-		i = level[counter].test_words_array;
+		i = test_words_array[counter];
 		printf("service message. iteration = %d\n", i);
 		printf("%s", record[i].meaning);
 		printf("Enter the word: ");
@@ -136,7 +142,7 @@ int test_func()
 			for (int a = 0; a < t; a++)
 				printf("%c", record[i].word[a]);
 			printf(" - %s", answer);
-			if (record[i].recognition_value < 8)
+			if (record[i].recognition_value < 7)
 				record[i].recognition_value++;
         	}
         	else
@@ -168,43 +174,43 @@ int sort_weak_words()
 	{
 		if (record[i].recognition_value == 1) 
 		{
-			level[pos_0].word_level_value_0 = record_index;
+			word_level_value_0[pos_0] = record_index;
 			record_index++;
 			pos_0++;
 		}
 		if (record[i].recognition_value == 2)
                 {
-                        level[pos_1].word_level_value_1 = record_index;
+                        word_level_value_1[pos_1] = record_index;
                         record_index++;
 			pos_1++;
                 }
 		if (record[i].recognition_value == 3)
                 {
-                        level[pos_2].word_level_value_2 = record_index;
+                        word_level_value_2[pos_2] = record_index;
                         record_index++;
 			pos_2++;
                 }
 		if (record[i].recognition_value == 4)
                 {
-                        level[pos_3].word_level_value_3 = record_index;
+                        word_level_value_3[pos_3] = record_index;
                         record_index++;
 			pos_3++;
                 }
 		if (record[i].recognition_value == 5)
                 {
-                        level[pos_4].word_level_value_4 = record_index;
+                        word_level_value_4[pos_4] = record_index;
                         record_index++;
 			pos_4++;
                 }
 		if (record[i].recognition_value == 6)
                 {
-                        level[pos_5].word_level_value_5 = record_index;
+                        word_level_value_5[pos_5] = record_index;
                         record_index++;
 			pos_5++;
                 }
 		if (record[i].recognition_value == 7)
                 {
-                        level[pos_6].word_level_value_6 = record_index;
+                        word_level_value_6[pos_6] = record_index;
                         record_index++;
 			pos_6++;
                 }
@@ -217,54 +223,55 @@ int find_weak_words()
 {
 	int i_test_array = 0;
 	int i = 0;
-	while (level[i].word_level_value_0 != 0)
+	while (word_level_value_0[i] != 0)
 	{
-		level[i_test_array].test_words_array = level[i].word_level_value_0;
+		test_words_array[i_test_array] = word_level_value_0[i];
 		i++;
 		i_test_array++;
 	}
 	i = 0;
-	while (level[i].word_level_value_1 != 0)
+	while (word_level_value_1[i] != 0)
         {
-                level[i_test_array].test_words_array = level[i].word_level_value_1;
+                test_words_array[i_test_array] = word_level_value_1[i];
                 i++;
-		i_test_array++;
+                i_test_array++;
         }
-	i = 0;
-	while (level[i].word_level_value_2 != 0)
+        i = 0;
+	while (word_level_value_2[i] != 0)
         {
-                level[i_test_array].test_words_array = level[i].word_level_value_2;
+                test_words_array[i_test_array] = word_level_value_2[i];
                 i++;
-		i_test_array++;
+                i_test_array++;
         }
-	i = 0;
-	while (level[i].word_level_value_3 != 0)
+        i = 0;
+	while (word_level_value_3[i] != 0)
         {
-                level[i_test_array].test_words_array = level[i].word_level_value_3;
+                test_words_array[i_test_array] = word_level_value_3[i];
                 i++;
-		i_test_array++;
+                i_test_array++;
         }
-	i = 0;
-	while (level[i].word_level_value_4 != 0)
+        i = 0;
+	while (word_level_value_4[i] != 0)
         {
-                level[i_test_array].test_words_array = level[i].word_level_value_4;
+                test_words_array[i_test_array] = word_level_value_4[i];
                 i++;
-		i_test_array++;
+                i_test_array++;
         }
-	i = 0;
-	while (level[i].word_level_value_5 != 0)
+        i = 0;
+	while (word_level_value_5[i] != 0)
         {
-                level[i_test_array].test_words_array = level[i].word_level_value_5;
+                test_words_array[i_test_array] = word_level_value_5[i];
                 i++;
-		i_test_array++;
+                i_test_array++;
         }
-	i = 0;
-	while (level[i].word_level_value_6 != 0)
+        i = 0;
+	while (word_level_value_6[i] != 0)
         {
-                level[i_test_array].test_words_array = level[i].word_level_value_6;
+                test_words_array[i_test_array] = word_level_value_6[i];
                 i++;
-		i_test_array++;
+                i_test_array++;
         }
+        i = 0;
 	return 0;
 }
 
@@ -346,8 +353,6 @@ int replace_temp_file()
 	return 0;
 }
 
-//int find_low_recognize_word();
-
 int print_all_data()
 {
 	for (int i = 0; i < 3; i++)
@@ -358,13 +363,58 @@ int print_all_data()
 	}
 	return 0;
 }
-/*
-int read_word()
+
+int memory_test()
 {
-	printf("Enter new word, lowercase\n");
-	return readstring(input_word, 50, &wordlen)
-*/
-
-//int read_meaning()
-
-//int read_knowledge_level()
+	
+	printf("word_level_value_0 array:");
+	for (int i = 0; i < 50; i++)
+	{
+		printf("%d", word_level_value_0[i]);
+	}
+	printf("\n");
+	printf("word_level_value_1 array:");
+	for (int i = 0; i < 50; i++)
+        {
+                printf("%d", word_level_value_1[i]);
+        }
+        printf("\n");
+        printf("word_level_value_2 array:");
+	for (int i = 0; i < 50; i++)
+        {
+                printf("%d", word_level_value_2[i]);
+        }
+        printf("\n");
+        printf("word_level_value_3 array:");
+	for (int i = 0; i < 50; i++)
+        {
+                printf("%d", word_level_value_3[i]);
+        }
+        printf("\n");
+        printf("word_level_value_4 array:");
+	for (int i = 0; i < 50; i++)
+        {
+                printf("%d", word_level_value_4[i]);
+        }
+        printf("\n");
+        printf("word_level_value_5 array:");
+	for (int i = 0; i < 50; i++)
+        {
+                printf("%d", word_level_value_5[i]);
+        }
+        printf("\n");
+        printf("word_level_value_6 array:");
+	for (int i = 0; i < 50; i++)
+        {
+                printf("%d", word_level_value_6[i]);
+        }
+        printf("\n");
+	printf("test_words_array   array:");
+        for (int i = 0; i < 50; i++)
+        {
+                printf("%d", test_words_array[i]);
+        }
+        printf("\n");
+        
+	return 0;
+}

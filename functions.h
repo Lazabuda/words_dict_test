@@ -10,6 +10,7 @@ int replace_temp_file();
 //int find_low_recognize_word();
 int sort_weak_words();
 int find_weak_words();
+int memory_test();
 int print_all_data();
 int add_word_func();
 int look_dict();
