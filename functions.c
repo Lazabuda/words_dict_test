@@ -1,12 +1,12 @@
 #include"functions.h"
-
+// Define struct for working with records
 typedef struct
 {
 	char *word;
 	char *meaning;
 	int recognition_value;
 } dictionary;
-
+// Arrays for replacing weak words in the first queue
 int *word_level_value_0;
 int *word_level_value_1;
 int *word_level_value_2;
@@ -17,53 +17,56 @@ int *word_level_value_6;
 int *test_words_array;
 
 int record_index = 0;
-const char* const dictFile = "dict.txt";
-const char* const tempFile = "temp.txt";
-static dictionary record[500];
+const char* const dictFile = "dict.txt"; // File to write data
+const char* const tempFile = "temp.txt"; // File to save temporary data
+static dictionary record[500]; // Max records
 int words_num;
 
-int memory_init()
+int memory_init() // Function to initialize memory and fill it by zero's
 {
+	printf("===================================\n");
 	word_level_value_0 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_0 == NULL)
-		printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-		printf("Memory allocated succesfully \n");
+		printf("Memory array 0 allocated succesfully \n");
 	word_level_value_1 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_1 == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-                printf("Memory allocated succesfully \n");
+                printf("Memory array 1 allocated succesfully \n");
 	word_level_value_2 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_2 == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-                printf("Memory allocated succesfully \n");
+                printf("Memory array 2 allocated succesfully \n");
 	word_level_value_3 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_3 == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-                printf("Memory allocated succesfully \n");
+                printf("Memory array 3 allocated succesfully \n");
 	word_level_value_4 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_4 == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-                printf("Memory allocated succesfully \n");
+                printf("Memory array 4 allocated succesfully \n");
 	word_level_value_5 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_5 == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-                printf("Memory allocated succesfully \n");
+                printf("Memory array 5 allocated succesfully \n");
 	word_level_value_6 = (int*)calloc(50, sizeof(int));
 	if (word_level_value_6 == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
 	else
-                printf("Memory allocated succesfully \n");
+                printf("Memory array 6 allocated succesfully \n");
 	test_words_array = (int*)calloc(50, sizeof(int));
         if (test_words_array == NULL)
-                printf("Memory not allocated \n");
+	{	printf("Memory not allocated \n"); return 1;}
         else
-                printf("Memory allocated succesfully \n");
+                printf("Memory test words array allocated succesfully \n");
+	printf("===================================\n");
+	printf("\n");
 	return 0;
 }
 
@@ -131,7 +134,8 @@ int test_func()
 		if (counter == value) break;
  		char answer[50];
 		i = test_words_array[counter];
-		printf("service message. iteration = %d\n", i);
+		printf("SERVICE MESSAGE. iteration = %d\n", i);
+		printf("\n");
 		printf("%s", record[i].meaning);
 		printf("Enter the word: ");
         	fgets(answer, 49, stdin);
@@ -366,7 +370,7 @@ int print_all_data()
 
 int memory_test()
 {
-	
+	printf("===================================\n");
 	printf("word_level_value_0 array:");
 	for (int i = 0; i < 50; i++)
 	{
@@ -415,6 +419,6 @@ int memory_test()
                 printf("%d", test_words_array[i]);
         }
         printf("\n");
-        
+        printf("===================================\n");
 	return 0;
 }
