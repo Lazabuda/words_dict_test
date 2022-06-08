@@ -16,6 +16,9 @@ int *word_level_value_5;
 int *word_level_value_6;
 int *test_words_array;
 
+#define WORD_LENGTH 50
+#define MEANING_LENGTH 150
+
 int record_index = 0;
 const char* const dictFile = "dict.txt"; // File to write data
 const char* const tempFile = "temp.txt"; // File to save temporary data
@@ -75,8 +78,8 @@ int add_word_func() // Fuction to add words
 
 	while (1)
 	{
-		char word[50];
-		char meaning[150];
+		char word[WORD_LENGTH];
+		char meaning[MEANING_LENGTH];
 		char answer;
 		int size;
 
@@ -136,7 +139,7 @@ int test_func()
 	for (counter; counter<=value; counter++)
 	{
 		if (counter == value) break;
- 		char answer[50];
+ 		char answer[WORD_LENGTH];
 		i = test_words_array[counter];
 		printf("SERVICE MESSAGE. iteration = %d\n", i);
 		printf("\n");
@@ -190,48 +193,21 @@ int sort_weak_words()
 	while (i < words_num)
 	{
 		if (record[i].recognition_value == 1) 
-		{
-			word_level_value_0[pos_0] = record_index;
-			record_index++;
-			pos_0++;
-		}
+			word_level_value_0[pos_0++] = record_index;
 		if (record[i].recognition_value == 2)
-                {
-                        word_level_value_1[pos_1] = record_index;
-                        record_index++;
-			pos_1++;
-                }
+                        word_level_value_1[pos_1++] = record_index;
 		if (record[i].recognition_value == 3)
-                {
-                        word_level_value_2[pos_2] = record_index;
-                        record_index++;
-			pos_2++;
-                }
+                        word_level_value_2[pos_2++] = record_index;
 		if (record[i].recognition_value == 4)
-                {
-                        word_level_value_3[pos_3] = record_index;
-                        record_index++;
-			pos_3++;
-                }
+                        word_level_value_3[pos_3++] = record_index;
 		if (record[i].recognition_value == 5)
-                {
-                        word_level_value_4[pos_4] = record_index;
-                        record_index++;
-			pos_4++;
-                }
+                        word_level_value_4[pos_4++] = record_index;
 		if (record[i].recognition_value == 6)
-                {
-                        word_level_value_5[pos_5] = record_index;
-                        record_index++;
-			pos_5++;
-                }
+                        word_level_value_5[pos_5++] = record_index;
 		if (record[i].recognition_value == 7)
-                {
-                        word_level_value_6[pos_6] = record_index;
-                        record_index++;
-			pos_6++;
-                }
+                        word_level_value_6[pos_6++] = record_index;
 		i++;
+		record_index++;
 	}
 	return 0;
 }
@@ -240,55 +216,26 @@ int find_weak_words()
 {
 	int i_test_array = 0;
 	int i = 0;
-	while (word_level_value_0[i] != 0)
-	{
-		test_words_array[i_test_array] = word_level_value_0[i];
-		i++;
-		i_test_array++;
-	}
+	while (word_level_value_0[i] != 0){
+		test_words_array[i_test_array++] = word_level_value_0[i++];}
 	i = 0;
-	while (word_level_value_1[i] != 0)
-        {
-                test_words_array[i_test_array] = word_level_value_1[i];
-                i++;
-                i_test_array++;
-        }
+	while (word_level_value_1[i] != 0){
+                test_words_array[i_test_array++] = word_level_value_1[i++];}
         i = 0;
-	while (word_level_value_2[i] != 0)
-        {
-                test_words_array[i_test_array] = word_level_value_2[i];
-                i++;
-                i_test_array++;
-        }
+	while (word_level_value_2[i] != 0){
+                test_words_array[i_test_array++] = word_level_value_2[i++];}
         i = 0;
-	while (word_level_value_3[i] != 0)
-        {
-                test_words_array[i_test_array] = word_level_value_3[i];
-                i++;
-                i_test_array++;
-        }
+	while (word_level_value_3[i] != 0){
+                test_words_array[i_test_array++] = word_level_value_3[i++];}
         i = 0;
-	while (word_level_value_4[i] != 0)
-        {
-                test_words_array[i_test_array] = word_level_value_4[i];
-                i++;
-                i_test_array++;
-        }
+	while (word_level_value_4[i] != 0){
+                test_words_array[i_test_array++] = word_level_value_4[i++];}
         i = 0;
-	while (word_level_value_5[i] != 0)
-        {
-                test_words_array[i_test_array] = word_level_value_5[i];
-                i++;
-                i_test_array++;
-        }
+	while (word_level_value_5[i] != 0){
+                test_words_array[i_test_array++] = word_level_value_5[i++];}
         i = 0;
-	while (word_level_value_6[i] != 0)
-        {
-                test_words_array[i_test_array] = word_level_value_6[i];
-                i++;
-                i_test_array++;
-        }
-        i = 0;
+	while (word_level_value_6[i] != 0){
+                test_words_array[i_test_array++] = word_level_value_6[i++];}
 	return 0;
 }
 
@@ -300,15 +247,15 @@ int look_dict()
 	printf("Let's see, what we have in dictionary\n");
 	FILE *dict;
 	dict = fopen(dictFile, "r");
-	char buffer_word[50];
-	char buffer_mean[150];
+	char buffer_word[WORD_LENGTH];
+	char buffer_mean[MEANING_LENGTH];
 	int knowledge_level;
-	char buffer_check[49];
+	char buffer_check[WORD_LENGTH];
 	while (!feof(dict))
 	{
 		printf("=====================================================================\n");
-		fgets(buffer_word, 49, dict);
-		fgets(buffer_mean, 149, dict);
+		fgets(buffer_word, WORD_LENGTH, dict);
+		fgets(buffer_mean, MEANING_LENGTH, dict);
 		fscanf(dict, "%d\n", &knowledge_level);
 		printf("%s", buffer_word);
 		printf("%s", buffer_mean);
@@ -322,15 +269,15 @@ int look_dict()
 int download_data_from_file()
 {
 	int i = 0;
-	char buffer_word[50];
-	char buffer_meaning[150];
+	char buffer_word[WORD_LENGTH];
+	char buffer_meaning[MEANING_LENGTH];
 	int knowledge_level;
 	FILE *dict;
 	dict = fopen(dictFile, "r");
 	while (!feof(dict))
 	{
-		fgets(buffer_word, 49, dict);
-		fgets(buffer_meaning, 149, dict);
+		fgets(buffer_word, WORD_LENGTH, dict);
+		fgets(buffer_meaning, MEANING_LENGTH, dict);
 		fscanf(dict, "%d\n", &knowledge_level);
 		record[i].word = (char*) malloc(strlen(buffer_word) + 1);
 		strcpy(record[i].word, buffer_word);
@@ -347,8 +294,8 @@ int download_data_from_file()
 int upload_data_from_file()
 {
 	int i = 0;
-        char buffer_word[50];
-        char buffer_meaning[150];
+        char buffer_word[WORD_LENGTH];
+        char buffer_meaning[MEANING_LENGTH];
         int knowledge_level;
         FILE *temp;
         temp = fopen(tempFile, "a");
