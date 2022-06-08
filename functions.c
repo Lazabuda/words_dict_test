@@ -70,7 +70,7 @@ int memory_init() // Function to initialize memory and fill it by zero's
 	return 0;
 }
 
-int add_word_func() // Fuction to add words (1)
+int add_word_func() // Fuction to add words
 {
 
 	while (1)
@@ -105,6 +105,9 @@ int add_word_func() // Fuction to add words (1)
 		printf("Do you want to enter another word? y/n\n");
 		scanf("%c", &answer);
 		if (answer == 'n') break;
+		if (answer == 'y') continue;
+		else ("unknown symbol, end cycle\n");
+		
 	}
 }
 
@@ -115,19 +118,20 @@ int test_func()
 	int i = 0;
 	int counter = 0;
 
-	download_data_from_file();
+	download_data_from_file(); // This function dounloaded data from file to memory for working with data
 	printf("SERVICE MESSAGE: download_data_from_file() - PASSED \n");
+	printf("\n");
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
 	scanf("%d", &value);
 	getchar();
-	memory_init();
+	memory_init(); // Initialyze memory, added memory for all created arrays
 	printf("SERVICE MESSAGE: memory_init() - PASSED \n");
-	sort_weak_words();
+	sort_weak_words(); // Sortning words by knowledge_level
 	printf("SERVICE MESSAGE: sort_weak_words() - PASSED \n");
-	find_weak_words();
+	find_weak_words(); // Put words for learning to queue
 	printf("SERVICE MESSAGE: find_weak_words() - PASSED \n");
-	memory_test();
+	memory_test(); // Show arrays to control
 	printf("SERVICE MESSAGE: memory_test() - PASSED \n");
 	for (counter; counter<=value; counter++)
 	{
@@ -158,8 +162,17 @@ int test_func()
         	}
 		printf("--------------------------------------------------------\n");
 	}
-	upload_data_from_file();
-	replace_temp_file();
+	upload_data_from_file(); // Upload data from memory to FILE
+	replace_temp_file(); // Delete dict.txt and rename temp.txt to dict.txt
+	free(word_level_value_0);
+	free(word_level_value_1);
+	free(word_level_value_2);
+	free(word_level_value_3);
+	free(word_level_value_4);
+	free(word_level_value_5);
+	free(word_level_value_6);
+	free(test_words_array);
+	record_index = 0;
 	return 0;
 }
 
