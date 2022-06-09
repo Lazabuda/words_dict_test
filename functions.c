@@ -19,6 +19,15 @@ int *test_words_array;
 #define WORD_LENGTH 50
 #define MEANING_LENGTH 150
 
+#define WORDS_IN_0_ARRAY 50
+#define WORDS_IN_1_ARRAY 50
+#define WORDS_IN_2_ARRAY 50
+#define WORDS_IN_3_ARRAY 50
+#define WORDS_IN_4_ARRAY 50
+#define WORDS_IN_5_ARRAY 50
+#define WORDS_IN_6_ARRAY 50
+#define TEST_WORDS_QUEUE_ARRAY 100
+
 int record_index = 0;
 const char* const dictFile = "dict.txt"; // File to write data
 const char* const tempFile = "temp.txt"; // File to save temporary data
@@ -28,42 +37,42 @@ int words_num;
 int memory_init() // Function to initialize memory and fill it by zero's
 {
 	printf("===================================\n");
-	word_level_value_0 = (int*)calloc(50, sizeof(int));
+	word_level_value_0 = (int*)calloc(WORDS_IN_0_ARRAY, sizeof(int));
 	if (word_level_value_0 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
 		printf("Memory array 0 allocated succesfully \n");
-	word_level_value_1 = (int*)calloc(50, sizeof(int));
+	word_level_value_1 = (int*)calloc(WORDS_IN_1_ARRAY, sizeof(int));
 	if (word_level_value_1 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
                 printf("Memory array 1 allocated succesfully \n");
-	word_level_value_2 = (int*)calloc(50, sizeof(int));
+	word_level_value_2 = (int*)calloc(WORDS_IN_2_ARRAY, sizeof(int));
 	if (word_level_value_2 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
                 printf("Memory array 2 allocated succesfully \n");
-	word_level_value_3 = (int*)calloc(50, sizeof(int));
+	word_level_value_3 = (int*)calloc(WORDS_IN_3_ARRAY, sizeof(int));
 	if (word_level_value_3 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
                 printf("Memory array 3 allocated succesfully \n");
-	word_level_value_4 = (int*)calloc(50, sizeof(int));
+	word_level_value_4 = (int*)calloc(WORDS_IN_4_ARRAY, sizeof(int));
 	if (word_level_value_4 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
                 printf("Memory array 4 allocated succesfully \n");
-	word_level_value_5 = (int*)calloc(50, sizeof(int));
+	word_level_value_5 = (int*)calloc(WORDS_IN_5_ARRAY, sizeof(int));
 	if (word_level_value_5 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
                 printf("Memory array 5 allocated succesfully \n");
-	word_level_value_6 = (int*)calloc(50, sizeof(int));
+	word_level_value_6 = (int*)calloc(WORDS_IN_6_ARRAY, sizeof(int));
 	if (word_level_value_6 == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
 	else
                 printf("Memory array 6 allocated succesfully \n");
-	test_words_array = (int*)calloc(50, sizeof(int));
+	test_words_array = (int*)calloc(TEST_WORDS_QUEUE_ARRAY, sizeof(int));
         if (test_words_array == NULL)
 	{	printf("Memory not allocated \n"); return 1;}
         else
@@ -332,49 +341,49 @@ int memory_test()
 {
 	printf("===================================\n");
 	printf("word_level_value_0 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_0_ARRAY; i++)
 	{
 		printf("%d", word_level_value_0[i]);
 	}
 	printf("\n");
 	printf("word_level_value_1 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_1_ARRAY; i++)
         {
                 printf("%d", word_level_value_1[i]);
         }
         printf("\n");
         printf("word_level_value_2 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_2_ARRAY; i++)
         {
                 printf("%d", word_level_value_2[i]);
         }
         printf("\n");
         printf("word_level_value_3 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_3_ARRAY; i++)
         {
                 printf("%d", word_level_value_3[i]);
         }
         printf("\n");
         printf("word_level_value_4 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_4_ARRAY; i++)
         {
                 printf("%d", word_level_value_4[i]);
         }
         printf("\n");
         printf("word_level_value_5 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_5_ARRAY; i++)
         {
                 printf("%d", word_level_value_5[i]);
         }
         printf("\n");
         printf("word_level_value_6 array:");
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < WORDS_IN_6_ARRAY; i++)
         {
                 printf("%d", word_level_value_6[i]);
         }
         printf("\n");
 	printf("test_words_array   array:");
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < TEST_WORDS_QUEUE_ARRAY; i++)
         {
                 printf("%d", test_words_array[i]);
         }
