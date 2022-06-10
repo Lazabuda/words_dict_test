@@ -32,7 +32,7 @@ int record_index = 0;
 const char* const dictFile = "dict.txt"; // File to write data
 const char* const tempFile = "temp.txt"; // File to save temporary data
 static dictionary record[500]; // Max records
-int words_num;
+int words_num; // quantity of words
 
 int memory_init() // Function to initialize memory and fill it by zero's
 {
@@ -118,7 +118,7 @@ int add_word_func() // Fuction to add words
 		scanf("%c", &answer);
 		if (answer == 'n') break;
 		if (answer == 'y') continue;
-		else ("unknown symbol, end cycle\n");
+		else ("unknown symbol, end cycle\n") break;
 		
 	}
 }
@@ -176,7 +176,7 @@ int test_func()
 	}
 	upload_data_from_file(); // Upload data from memory to FILE
 	replace_temp_file(); // Delete dict.txt and rename temp.txt to dict.txt
-	free(word_level_value_0);
+	free(word_level_value_0); // Free memory of temporary arrays
 	free(word_level_value_1);
 	free(word_level_value_2);
 	free(word_level_value_3);
