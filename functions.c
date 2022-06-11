@@ -188,7 +188,7 @@ int test_func()
 	return 0;
 }
 
-int sort_weak_words()
+int sort_weak_words() // This function analyze every value of knowledge_level and put records in queue by values (from weak words to famous)
 {
 	int i = 0;
 	int pos_0 = 0;
@@ -201,7 +201,7 @@ int sort_weak_words()
 		
 	while (i < words_num)
 	{
-		if (record[i].recognition_value == 1) 
+		if (record[i].recognition_value == 1) // This value is less. Unknown word.
 			word_level_value_0[pos_0++] = record_index;
 		if (record[i].recognition_value == 2)
                         word_level_value_1[pos_1++] = record_index;
@@ -213,7 +213,7 @@ int sort_weak_words()
                         word_level_value_4[pos_4++] = record_index;
 		if (record[i].recognition_value == 6)
                         word_level_value_5[pos_5++] = record_index;
-		if (record[i].recognition_value == 7)
+		if (record[i].recognition_value == 7) // This value is high. Famous word.
                         word_level_value_6[pos_6++] = record_index;
 		i++;
 		record_index++;
