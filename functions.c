@@ -118,7 +118,11 @@ int add_word_func() // Fuction to add words
 		scanf("%c", &answer);
 		if (answer == 'n') break;
 		if (answer == 'y') continue;
-		else ("unknown symbol, end cycle\n") break;
+		else 
+		{
+			printf("unknown symbol, end cycle\n");
+		       	break;
+		}
 		
 	}
 }
@@ -145,6 +149,11 @@ int test_func()
 	printf("SERVICE MESSAGE: find_weak_words() - PASSED \n");
 	memory_test(); // Show arrays to control
 	printf("SERVICE MESSAGE: memory_test() - PASSED \n");
+	if (value > words_num)
+	{
+		printf("Quantity of words in the dictionary is less, than you want to train, sorry. In your dictionary now there are: %d words\n", words_num);
+		value = words_num;
+	}
 	for (counter; counter<=value; counter++)
 	{
 		if (counter == value) break;
