@@ -99,6 +99,16 @@ int add_word_func() // Fuction to add words
 		
 		printf("Enter new word, lowercase\n");
 		fgets(word, sizeof(word), stdin); // read the string with word from input
+		if (strpbrk(word, "0123456789")) 
+		{
+			printf("There is a digit in your word!\n");
+			break;
+		}
+		if (strpbrk(word, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")) 
+		{
+			printf("All letters must be lowercase!\n");
+			break;
+		}
 		fprintf(dict, "%s", word); // write word in file
 
 		printf("Enter meaning of new word\n");
