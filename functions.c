@@ -99,7 +99,7 @@ int add_word_func() // Fuction to add words
 		
 		printf("Enter new word, lowercase\n");
 		fgets(word, sizeof(word), stdin); // read the string with word from input
-		if (strpbrk(word, "0123456789")) 
+		if (strpbrk(word, "0123456789")) // check if we have digits in our input string
 		{
 			printf("There is a digit in your word!\n");
 			break;
@@ -193,7 +193,7 @@ int test_func()
         	}
 		printf("--------------------------------------------------------\n");
 	}
-	upload_data_from_file(); // Upload data from memory to FILE
+	upload_data_to_file(); // Upload data from memory to FILE
 	replace_temp_file(); // Delete dict.txt and rename temp.txt to dict.txt
 	free(word_level_value_0); // Free memory of temporary arrays
 	free(word_level_value_1);
@@ -240,11 +240,11 @@ int sort_weak_words() // This function analyze every value of knowledge_level an
 	return 0;
 }
 
-int find_weak_words()
+int find_weak_words() // This function put words from weak to famous in one array - test_words_array in queue
 {
 	int i_test_array = 0;
 	int i = 0;
-	while (word_level_value_0[i] != 0){
+	while (word_level_value_0[i] != 0){ // weak words first
 		test_words_array[i_test_array++] = word_level_value_0[i++];}
 	i = 0;
 	while (word_level_value_1[i] != 0){
@@ -262,23 +262,21 @@ int find_weak_words()
 	while (word_level_value_5[i] != 0){
                 test_words_array[i_test_array++] = word_level_value_5[i++];}
         i = 0;
-	while (word_level_value_6[i] != 0){
+	while (word_level_value_6[i] != 0){ // famous words last
                 test_words_array[i_test_array++] = word_level_value_6[i++];}
 	return 0;
 }
 
 
 
-int look_dict()
+int look_dict() // This function shows all data from dict.txt More simply - print dict.txt
 {
-	char check[10];
 	printf("Let's see, what we have in dictionary\n");
 	FILE *dict;
 	dict = fopen(dictFile, "r");
 	char buffer_word[WORD_LENGTH];
 	char buffer_mean[MEANING_LENGTH];
 	int knowledge_level;
-	char buffer_check[WORD_LENGTH];
 	while (!feof(dict))
 	{
 		printf("=====================================================================\n");
@@ -294,7 +292,7 @@ int look_dict()
 	return 0;
 }
 
-int download_data_from_file()
+int download_data_from_file() // This function downloads data from file to the internal memory (buffer) to make our work with data more easy
 {
 	int i = 0;
 	char buffer_word[WORD_LENGTH];
@@ -319,7 +317,7 @@ int download_data_from_file()
 	return 0;
 }
 
-int upload_data_from_file()
+int upload_data_to_file()
 {
 	int i = 0;
         char buffer_word[WORD_LENGTH];
