@@ -317,7 +317,7 @@ int download_data_from_file() // This function downloads data from file to the i
 	return 0;
 }
 
-int upload_data_to_file()
+int upload_data_to_file() // This function downloads data from memory (buffer) to temporary file temp.txt
 {
 	int i = 0;
         char buffer_word[WORD_LENGTH];
@@ -336,25 +336,16 @@ int upload_data_to_file()
         return 0;
 }
 
-int replace_temp_file()
+int replace_temp_file() // Replace old data in dict.txt by new data from temporary file temp.txt
 {
 	remove ("dict.txt");
 	rename ("temp.txt", "dict.txt");
 	return 0;
 }
 
-int print_all_data()
-{
-	for (int i = 0; i < 3; i++)
-	{
-		printf("%s", record[i].word);
-		printf("%s", record[i].meaning);
-		printf("%d\n", record[i].recognition_value);
-	}
-	return 0;
-}
 
-int memory_test()
+
+int memory_test() // Test of memory for data arrays
 {
 	printf("===================================\n");
 	printf("word_level_value_0 array:");

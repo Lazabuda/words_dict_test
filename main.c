@@ -10,7 +10,7 @@ int main()
         	printf("1 - Enter new word\n");
 		printf("2 - Start testing\n");
 		printf("3 - Look at the dictionary\n");
-		printf("4 - Download and show data\n");
+		//printf("4 - Download and show data\n");
 		printf("0 - exit\n");
 		printf(">");
 		scanf("%d", &main_menu);
@@ -20,11 +20,6 @@ int main()
 			test_func();
 		if (main_menu == 3)
 			look_dict();
-		if (main_menu == 4)
-		{
-			download_data_from_file();
-			print_all_data();
-		}
 		if (main_menu == 0)
 			break;
 	}
