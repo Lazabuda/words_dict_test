@@ -18,7 +18,7 @@ int *test_words_array;
 
 #define WORD_LENGTH 50
 #define MEANING_LENGTH 150
-
+// Max words in queue - 100 If you need more, just change values and hide test_memory function. It is for testing.
 #define WORDS_IN_0_ARRAY 50
 #define WORDS_IN_1_ARRAY 50
 #define WORDS_IN_2_ARRAY 50
