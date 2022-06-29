@@ -145,20 +145,20 @@ int test_func()
 	int counter = 0;
 
 	download_data_from_file(); // This function dounloaded data from file to memory for working with data
-	printf("SERVICE MESSAGE: download_data_from_file() - PASSED \n");
+	//printf("SERVICE MESSAGE: download_data_from_file() - PASSED \n");
 	printf("\n");
 	printf("Let's see how smart are you\n");
         printf("How many words do you want to train today?\n");
 	scanf("%d", &value);
 	getchar();
 	memory_init(); // Initialyze memory, added memory for all created arrays
-	printf("SERVICE MESSAGE: memory_init() - PASSED \n");
+	//printf("SERVICE MESSAGE: memory_init() - PASSED \n");
 	sort_weak_words(); // Sortning words by knowledge_level
-	printf("SERVICE MESSAGE: sort_weak_words() - PASSED \n");
+	//printf("SERVICE MESSAGE: sort_weak_words() - PASSED \n");
 	find_weak_words(); // Put words for learning to queue
-	printf("SERVICE MESSAGE: find_weak_words() - PASSED \n");
-	memory_test(); // Show arrays to control
-	printf("SERVICE MESSAGE: memory_test() - PASSED \n");
+	//printf("SERVICE MESSAGE: find_weak_words() - PASSED \n");
+	//memory_test(); // Show arrays to control
+	//printf("SERVICE MESSAGE: memory_test() - PASSED \n");
 	if (value > words_num)
 	{
 		printf("Quantity of words in the dictionary is less, than you want to train, sorry. In your dictionary now there are: %d words\n", words_num);
@@ -169,7 +169,7 @@ int test_func()
 		if (counter == value) break;
  		char answer[WORD_LENGTH];
 		i = test_words_array[counter];
-		printf("SERVICE MESSAGE. iteration = %d\n", i);
+		//printf("SERVICE MESSAGE. iteration = %d\n", i);
 		printf("\n");
 		printf("%s", record[i].meaning);
 		printf("Enter the word: ");
