@@ -399,3 +399,9 @@ int memory_test() // Test of memory for data arrays
         printf("===================================\n");
 	return 0;
 }
+
+int show_initial_data()
+{
+	download_data_from_file();
+	printf("There are %d words in your dictionary\n", words_num);
+}

@@ -5,6 +5,7 @@
 
 int download_data_from_file();
 int memory_init();
+int show_initial_data();
 int upload_data_to_file();
 int replace_temp_file();
 int sort_weak_words();
