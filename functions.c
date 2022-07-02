@@ -28,7 +28,7 @@ int *test_words_array;
 #define WORDS_IN_6_ARRAY 50
 #define TEST_WORDS_QUEUE_ARRAY 100
 
-int record_index = 0;
+int record_index = 0; // This variable is for queue(sort_weak_words function)
 const char* const dictFile = "dict.txt"; // File to write data
 const char* const tempFile = "temp.txt"; // File to save temporary data
 static dictionary record[500]; // Max records
