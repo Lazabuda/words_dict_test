@@ -189,7 +189,7 @@ int test_func()
                 	printf("WRONG!\n");
 			printf("The right word - %s", record[i].word);
 			printf("You have input - %s", answer);
-			if (record[i].recognition_value != 0) record[i].recognition_value--;
+			if (record[i].recognition_value > 1) record[i].recognition_value--;
         	}
 		printf("--------------------------------------------------------\n");
 	}
