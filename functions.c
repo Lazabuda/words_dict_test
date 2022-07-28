@@ -143,6 +143,9 @@ int test_func()
 	int value = 0;
 	int i = 0;
 	int counter = 0;
+	float right = 0.0;
+	float wrong = 0.0;
+	float test_result;
 
 	download_data_from_file(); // This function dounloaded data from file to memory for working with data
 	//printf("SERVICE MESSAGE: download_data_from_file() - PASSED \n");
@@ -177,6 +180,7 @@ int test_func()
         	if (strcmp (record[i].word, answer) == 0)
         	{
                 	printf("RIGHT!\n");
+			right++;
 			int t = strcspn(record[i].word, "\n");
 			for (int a = 0; a < t; a++)
 				printf("%c", record[i].word[a]);
@@ -187,12 +191,15 @@ int test_func()
         	else
         	{
                 	printf("WRONG!\n");
+			wrong++;
 			printf("The right word - %s", record[i].word);
 			printf("You have input - %s", answer);
 			if (record[i].recognition_value > 1) record[i].recognition_value--;
         	}
 		printf("--------------------------------------------------------\n");
 	}
+	test_result = (right/value)*100;
+	printf("You are %.f percent smart. Right answers - %.f. Wrong answers - %.f.\n", test_result, right, wrong);
 	upload_data_to_file(); // Upload data from memory to FILE
 	replace_temp_file(); // Delete dict.txt and rename temp.txt to dict.txt
 	free(word_level_value_0); // Free memory of temporary arrays
