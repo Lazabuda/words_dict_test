@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<sys/mman.h> // library for work with file memory
+#include<stdio_ext.h>
 
 int download_data_from_file();
 int memory_init();
