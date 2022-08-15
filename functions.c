@@ -4,6 +4,7 @@ typedef struct
 {
 	char *word;
 	char *meaning;
+	char *translation;
 	int recognition_value;
 } dictionary;
 // Arrays for replacing weak words in the first queue
@@ -18,6 +19,7 @@ int *test_words_array;
 
 #define WORD_LENGTH 50
 #define MEANING_LENGTH 250
+#define TRANSLATION_LENGTH 150
 // Max words in queue - 100 If you need more, just change values and hide test_memory function. It is for testing.
 #define WORDS_IN_0_ARRAY 50
 #define WORDS_IN_1_ARRAY 50
@@ -89,6 +91,7 @@ int add_word_func() // Fuction to add words
 	{
 		char word[WORD_LENGTH];
 		char meaning[MEANING_LENGTH];
+		char translation[TRANSLATION_LENGTH];
 		char answer;
 		int size;
 
@@ -115,6 +118,10 @@ int add_word_func() // Fuction to add words
 		fgets(meaning, sizeof(meaning), stdin); // read the string with meaning of the word
 		fprintf(dict, "%s", meaning); // write the meaning of the word to file
 		
+		printf("Enter translation of new word\n");
+                fgets(translation, sizeof(translation), stdin); // read the string with meaning of the word
+                fprintf(dict, "%s", translation); // write the meaning of the word to file
+
 		fprintf(dict, "%d\n", 1); // write variable, which shows how good we knoe this word
 		fclose(dict); // close the file
 		printf("You have just added:\n");
@@ -131,7 +138,7 @@ int add_word_func() // Fuction to add words
 		else 
 		{
 			printf("unknown symbol, end cycle\n");
-		       	__fpurge(stdin);
+		       	__fpurge(stdin); // clear stdin buffer. If we will not do it, first symbols of new word (if cycle will continue) were symbols from stdin buffer.
 			break;
 		}
 	}
@@ -171,6 +178,7 @@ int test_func()
 	{
 		if (counter == value) break;
  		char answer[WORD_LENGTH];
+		char answer2[WORD_LENGTH];
 		i = test_words_array[counter];
 		//printf("SERVICE MESSAGE. iteration = %d\n", i);
 		printf("\n");
@@ -190,11 +198,25 @@ int test_func()
         	}
         	else
         	{
-                	printf("WRONG!\n");
-			wrong++;
-			printf("The right word - %s", record[i].word);
-			printf("You have input - %s", answer);
-			if (record[i].recognition_value > 1) record[i].recognition_value--;
+                	printf("%s", record[i].translation);
+			printf("Enter the word: ");
+			fgets(answer2, 49, stdin);
+			if (strcmp (record[i].word, answer2) == 0)
+			{
+				printf("RIGHT!\n");
+				int t = strcspn(record[i].word, "\n");
+                        	for (int a = 0; a < t; a++)
+                                	printf("%c", record[i].word[a]);
+                        	printf(" - %s", answer);
+			}
+			else
+			{
+				printf("WRONG!\n");
+                        	wrong++;
+                        	printf("The right word - %s", record[i].word);
+                        	printf("You have input - %s", answer);
+                        	if (record[i].recognition_value > 1) record[i].recognition_value--;
+			}
         	}
 		printf("--------------------------------------------------------\n");
 	}
@@ -283,15 +305,18 @@ int look_dict() // This function shows all data from dict.txt More simply - prin
 	dict = fopen(dictFile, "r");
 	char buffer_word[WORD_LENGTH];
 	char buffer_mean[MEANING_LENGTH];
+	char buffer_translation[TRANSLATION_LENGTH];
 	int knowledge_level;
 	while (!feof(dict))
 	{
 		printf("=====================================================================\n");
 		fgets(buffer_word, WORD_LENGTH, dict);
 		fgets(buffer_mean, MEANING_LENGTH, dict);
+		fgets(buffer_translation, TRANSLATION_LENGTH, dict);
 		fscanf(dict, "%d\n", &knowledge_level);
 		printf("%s", buffer_word);
 		printf("%s", buffer_mean);
+		printf("%s", buffer_translation);
 		printf("%d\n", knowledge_level); 
 	}
 	printf("The end of the dictionary. Thanks for your attention. You are smart and good!\n");
@@ -304,6 +329,7 @@ int download_data_from_file() // This function downloads data from file to the i
 	int i = 0;
 	char buffer_word[WORD_LENGTH];
 	char buffer_meaning[MEANING_LENGTH];
+	char buffer_translation[TRANSLATION_LENGTH];
 	int knowledge_level;
 	FILE *dict;
 	dict = fopen(dictFile, "r");
@@ -311,11 +337,14 @@ int download_data_from_file() // This function downloads data from file to the i
 	{
 		fgets(buffer_word, WORD_LENGTH, dict);
 		fgets(buffer_meaning, MEANING_LENGTH, dict);
+		fgets(buffer_translation, TRANSLATION_LENGTH, dict);
 		fscanf(dict, "%d\n", &knowledge_level);
 		record[i].word = (char*) malloc(strlen(buffer_word) + 1);
 		strcpy(record[i].word, buffer_word);
 		record[i].meaning = (char*) malloc(strlen(buffer_meaning) + 1);
 		strcpy(record[i].meaning, buffer_meaning);
+		record[i].translation = (char*) malloc(strlen(buffer_translation) + 1);
+		strcpy(record[i].translation, buffer_translation);
 		record[i].recognition_value = knowledge_level;
 		i++;
 	}
@@ -329,6 +358,7 @@ int upload_data_to_file() // This function downloads data from memory (buffer) t
 	int i = 0;
         char buffer_word[WORD_LENGTH];
         char buffer_meaning[MEANING_LENGTH];
+	char buffer_translation[TRANSLATION_LENGTH];
         int knowledge_level;
         FILE *temp;
         temp = fopen(tempFile, "a");
@@ -336,6 +366,7 @@ int upload_data_to_file() // This function downloads data from memory (buffer) t
         {
                 fprintf(temp, "%s", record[i].word);
 		fprintf(temp, "%s", record[i].meaning);
+		fprintf(temp, "%s", record[i].translation);
                 fprintf(temp, "%d\n", record[i].recognition_value);
                 i++;
         }
