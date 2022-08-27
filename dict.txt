@@ -1,12 +1,204 @@
 odd
-different to what is usual or expected, strange
+different to what is usual or expected; strange
+странный
+7
+savage
+cruel and vicious; aggressively hostile
+дикарь, варвар
+4
+occur
+happen; take place
+происходить, случаться, со�6�тояться
+3
+demand
+an insistent and peremptory request, made as of right
+требование, спрос
+2
+despite
+without being affected by; in spite of
+несмотря на, вопреки
+3
+wimp
+a weak and cowardly or unadventurous person
+зануда, слюнтяй
+4
+rag
+a piece of old cloth, especially one torn from a larger piece, used typically for cleaning things
+тряпка, ветошь
+4
+loser
+a person or thing that loses or has lost something, especially a game or contest
+неудачник
+4
+captivity
+the condition of being imprisoned or confined
+плен, рабство
+3
+surround
+be all round (someone or something)
+окружать, оцепить
+4
+needs
+of necessity
+потребности, необходимост�6�
+4
+requirement
+a thing that is needed or wanted
+требование, потребность
+4
+satisfy
+meet the expectations, needs, or desires of (someone)
+удовлетворять, соответств�6�вать
+3
+attitude
+a settled way of thinking or feeling about something
+отношение, позиция, подход
+2
+futile
+incapable of producing any useful result; pointless
+бесполезный, напрасный, ни�2�чёмный
+1
+toss
+throw (a coin) into the air in order to make a decision between two alternatives, based on which side of the coin faces uppermost when it lands.
+бросать жребий, подбрасыва2ть
+3
+reliability
+the degree to which the result of a measurement, calculation, or specification can be depended on to be accurate
+надежность, достоверность
+3
+substitution
+the action of replacing someone or something with another person or thing
+замена, подмена
+3
+sift
+put (a fine or loose substance) through a sieve so as to remove lumps or large particles
+просеивать, анализировать
+3
+nasty
+very bad or unpleasant
+противный, мерзкий, омерзи�3�ельный
+3
+significance
+the quality of being worthy of attention; importance
+значимость, важность
+1
+obsess
+preoccupy or fill the mind of (someone) continually and to a troubling extent
+преследовать, овладеть, за�1�ладеть
+3
+shuffle
+walk by dragging one's feet along or without lifting them fully from the ground
+шарканье, перетасовка
+3
+conveyor
+a person or thing that transports or communicates something
+транспортёр, конвейер
+3
+gingerly
+in a careful or cautious manner
+осторожно, робко
+3
+reveal
+make (previously unknown or secret information) known to others
+раскрыть, показывать, выяв�3�ть
+1
+relief
+a feeling of reassurance and relaxation following release from anxiety or distress
+облегчение, утешение
+3
+intense
+of extreme force, degree, or strength
+интенсивный, напряжённый
+1
+stuff
+matter, material, articles, or activities of a specified or indeterminate kind that are being referred to, indicated, or implied
+материал, хлам, дрянь
+3
+inappropriate
+not suitable or proper in the circumstances
+несоответствующий, неумес�1�ный
+3
+acquaintance
+knowledge or experience of something
+знакомство, ознакомление
+1
+ruggedized
+designed or improved to be hard-wearing or shock-resistant
+прочный, износоустойчивый
+3
+enhance
+intensify, increase, or further improve the quality, value, or extent of
+усилить, укрепить
+3
+dub
+give an unofficial name or nickname to
+дублировать, окрестить, на�1�вать
+3
+transient
+lasting only for a short time; impermanent
+преходящий, недолговечный
+1
+cubicle
+a small partitioned-off area of a room, for example one containing a shower or toilet, or a desk in an office
+кабинка, клетушка, ячейка
+3
+depose
+remove from office suddenly and forcefully
+свергнуть, сместить
+3
+liege
+concerned with or relating to the relationship between a feudal superior and a vassal
+сеньор, вассал
+3
+duty
+a moral or legal obligation; a responsibility
+обязанность, повинность
+3
+entreat
+ask someone earnestly or anxiously to do something
+умолять, просить
+3
 bunch
 a number of things, typically of the same kind, growing or fastened together
+кучка, связка, букет
+3
 charming
-very pleasant or attractive, friendly
-occur
-happen, take place, exist or be found to be present in a place or under a particular set of conditions
-convinient
-fitting in well with a person's needs, activities, and plans; involving little trouble or effort
-There is just for understanding why my commits don't display
-Maybe there was a problem with incorrect e-mail. First letter of email was changed. Email was incorrect. Again)
+very pleasant or attractive
+очаровательный, обаятельн�2�й
+3
+convenient
+fitting in well with a person's needs, activities, and plans
+удобный, выгодный
+1
+mercenary
+primarily concerned with making money at the expense of ethics
+наёмник
+3
+assured
+confident
+гарантированный, застрахо�2�анный
+3
+oblivious
+not aware of or concerned about what is happening around one
+забывчивый, рассеянный
+3
+aptitude
+a natural ability to do something
+склонность, предрасположе�2�ность, пригодность
+1
+noun
+a word (other than a pronoun) used to identify any of a class of people, places, or things ( common noun ), or to name a particular one of these ( proper noun )
+существительное
+3
+verb
+a word used to describe an action, state, or occurrence, and forming the main part of the predicate of a sentence, such as hear, become, happen
+глагол
+3
+adjective
+a word naming an attribute of a noun, such as sweet, red, or technical
+прилагательное
+3
+indiscretion
+<Liar Liar> Seven single acts of indiscretion
+неосмотрительность, опром�2�тчивость
+1

@@ -21,14 +21,14 @@ int *test_words_array;
 #define MEANING_LENGTH 250
 #define TRANSLATION_LENGTH 150
 // Max words in queue - 100 If you need more, just change values and hide test_memory function. It is for testing.
-#define WORDS_IN_0_ARRAY 50
-#define WORDS_IN_1_ARRAY 50
-#define WORDS_IN_2_ARRAY 50
-#define WORDS_IN_3_ARRAY 50
-#define WORDS_IN_4_ARRAY 50
-#define WORDS_IN_5_ARRAY 50
-#define WORDS_IN_6_ARRAY 50
-#define TEST_WORDS_QUEUE_ARRAY 100
+#define WORDS_IN_0_ARRAY 150
+#define WORDS_IN_1_ARRAY 150
+#define WORDS_IN_2_ARRAY 150
+#define WORDS_IN_3_ARRAY 150
+#define WORDS_IN_4_ARRAY 150
+#define WORDS_IN_5_ARRAY 150
+#define WORDS_IN_6_ARRAY 150
+#define TEST_WORDS_QUEUE_ARRAY 200
 
 int record_index = 0; // This variable is for queue(sort_weak_words function)
 const char* const dictFile = "dict.txt"; // File to write data
